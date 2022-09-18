@@ -17,3 +17,7 @@ fetch(req)
 const form = document.querySelector("main form");
 
 // Create Event listener
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
