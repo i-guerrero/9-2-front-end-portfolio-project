@@ -1,4 +1,4 @@
-const container = document.querySelector(".container");
+let container = document.querySelector(".container");
 const main = document.querySelector("main");
 const form = document.querySelector("form");
 let date = "from=2022-09-10&";
@@ -19,6 +19,7 @@ let url = baseUrl + q + date + sortBy + apiKey;
 // let req = new Request(url);
 
 function displayData(data) {
+  container = document.querySelector(".container");
   for (let i = 0; i < 10; i++) {
     // Get article
     const article = data.articles[i];
@@ -45,7 +46,7 @@ function displayData(data) {
     img.setAttribute("src", article.urlToImage);
     img.setAttribute("alt", article.title);
     pDescription.innerText = article.description;
-    pContent.innerText = article.content;
+    pContent.innerHTML = article.content;
     pSource.innerHTML = `<strong>Source:</strong> ${article.source.name}`;
     a.setAttribute("href", article.url);
     pReadMore.innerText = "Read More";
@@ -63,7 +64,7 @@ function displayData(data) {
       a
     );
     a.append(pReadMore);
-    // console.log(h2Title);
+    console.log(h3Title);
   }
 }
 
@@ -81,22 +82,38 @@ form.addEventListener("submit", (event) => {
   let topic = document.querySelector("#search").value;
   console.log(topic);
   let date = document.querySelector("#date").value;
-  console.log(date);
-  // Update date and q
-  console.log();
-  // Clear the main page
-  main.innerHTML = `<h2>${topic} Climate News from ${date} to Today</h2>
+  const warning = document.querySelector(".warning p");
+  // If no topic nor date, display error message
+  if (!topic && !date) {
+    // check if warning already exists, else do nothing
+    if (!warning) {
+      const pError = document.createElement("p");
+      pError.innerText = "Please input a search topic or date.";
+      document.querySelector(".warning").append(pError);
+    }
+  } else {
+    // Update date and q
+    // Clear the main page
+    if (warning) {
+      warning.remove();
+    }
+    main.innerHTML = `<h2>${topic} Climate News from ${date} to Today</h2>
   <div class="container"></div>`;
 
-  changeURL(date, topic);
-  console.log(url);
-  // Make fetch request
-  fetch(url)
-    .then((response) => response.json())
-    .then(displayData);
+    changeURL(date, topic);
+    console.log(url);
+    // Make fetch request
+    fetch(url)
+      .then((response) => response.json())
+      .then(displayData);
+  }
+
+  // Clear the input fields
+  document.querySelector("#search").value = "";
+  document.querySelector("#date").value = "";
 });
 
-function changeURL(dateEntered, topicEntered) {
+function changeURL(dateEntered = "", topicEntered = "") {
   q = `q=climate+${topicEntered}&`;
   date = `from=${dateEntered}&`;
   url = baseUrl + q + date + sortBy + apiKey;
