@@ -1,3 +1,4 @@
+const container = document.querySelector(".container");
 const main = document.querySelector("main");
 const form = document.querySelector("form");
 let date = "from=2022-09-10&";
@@ -49,7 +50,7 @@ function displayData(data) {
     a.setAttribute("href", article.url);
     pReadMore.innerText = "Read More";
 
-    main.append(articleEle);
+    container.append(articleEle);
     // articleEle.append(a);
     articleEle.append(
       h3Title,
@@ -84,7 +85,8 @@ form.addEventListener("submit", (event) => {
   // Update date and q
   console.log();
   // Clear the main page
-  main.innerHTML = `<h2>${topic} Climate News from ${date} to Today</h2>`;
+  main.innerHTML = `<h2>${topic} Climate News from ${date} to Today</h2>
+  <div class="container"></div>`;
 
   changeURL(date, topic);
   console.log(url);
