@@ -88,8 +88,14 @@ form.addEventListener("submit", (event) => {
     // check if warning already exists, else do nothing
     if (!warning) {
       const pError = document.createElement("p");
+      const eButton = document.createElement("button");
       pError.innerText = "Please input a search topic or date.";
-      document.querySelector(".warning").append(pError);
+      document.querySelector(".warning").append(pError, eButton);
+      eButton.innerText = "Delete Error Message";
+      eButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(".warning").innerHTML = "";
+      });
     }
   } else {
     // Update date and q
