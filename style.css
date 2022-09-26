@@ -1,17 +1,29 @@
-/* main {
-    Implement grid
-} */
+body {
+    font-family: Oswald;
+    font-size: 20px;
+    background-color: azure;
+}
 
 h3:hover {
-    font-size: 20px;
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 22px;
 }
 
 h2 {
     text-align: center;
+    font-family: Oswald;
+    font-size: 32px;;
 }
 
 img:hover {
     width: 100%;
+}
+
+input {
+    margin: 10px;
 }
 
 a:hover {
@@ -20,6 +32,7 @@ a:hover {
 
 article {
     width: 95%;
+    padding: 15px;
 }
 
 img {
@@ -31,9 +44,16 @@ img {
     text-align: center;
 }
 
+nav a {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
 p {
     font-size: 22px;
     width: 70%;
+    font-family: Lato;
 }
 
 .warning {
