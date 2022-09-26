@@ -103,7 +103,7 @@ form.addEventListener("submit", (event) => {
     if (warning) {
       warning.remove();
     }
-    main.innerHTML = `<h2>${topic} Climate News from ${date} to Today</h2>
+    main.innerHTML = `<h2>${topic} Top Climate News from ${date} to Today</h2>
   <div class="container"></div>`;
 
     changeURL(date, topic);
