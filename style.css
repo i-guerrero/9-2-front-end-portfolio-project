@@ -12,6 +12,30 @@ h3 {
     font-size: 22px;
 }
 
+nav {
+    display: flex;
+    gap: 3rem;
+  }
+  
+  a {
+    flex: 1;
+    background-color: rgb(56, 87, 4);
+    color: #fff;
+    border: 1px solid;
+    padding: 0.5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+  }
+  
+  a:hover,
+  a:focus {
+    background-color: #fff;
+    color: #333;
+  }  
+
 h2 {
     text-align: center;
     font-family: Oswald;
