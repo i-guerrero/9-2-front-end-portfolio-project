@@ -17,7 +17,7 @@ nav {
     gap: 3rem;
   }
   
-  a {
+ nav a {
     flex: 1;
     background-color: rgb(56, 87, 4);
     color: #fff;
@@ -66,12 +66,6 @@ img {
 #creator {
     width: 20%;
     text-align: center;
-}
-
-nav a {
-    padding-right: 10px;
-    padding-left: 10px;
-    font-size: 18px;
 }
 
 p {
